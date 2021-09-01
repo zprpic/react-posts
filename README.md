@@ -24,7 +24,7 @@
 
 ---
 
-# 1 Connect project to github
+### 1 Connect project to github
 
 - app name: react-posts
 - github repo: https://github.com/zprpic/react-posts
