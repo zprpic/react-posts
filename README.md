@@ -28,3 +28,19 @@
 
 - app name: react-posts
 - github repo: https://github.com/zprpic/react-posts
+
+### 2 Prepare folder structure
+
+- structuring folders by "features":
+
+a) components
+b) pages
+c) services
+d) hooks
+e) config
+
+### 3 Prepare necessary dependencies
+
+a) react-router-dom (from npm install react-router-dom)
+
+### 4 Prepare API_URL inside config folder
