@@ -62,3 +62,5 @@ a) react-router-dom (from npm install react-router-dom)
 ### 8 Create a comments component and useFetch hook
 
 - Should fetch ALL comments
+
+### 9 Create helper functions to help proccess response data and make rendering easier

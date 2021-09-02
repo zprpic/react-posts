@@ -9,13 +9,7 @@ import Comment from "./Comment";
 const List = () => {
   const { isLoadingPosts, posts } = useFetchPosts(URL);
   const { isLoadingComments, comments } = useFetchComments(URL);
-  const posterIDArray = Object.keys(posts);
 
-  /*   for (const userId of posterIDArray) {
-    posts[userId].forEach((post) => {
-      console.log(post);
-    });
-  } */
   console.log(posts);
   console.log(comments);
   return (
