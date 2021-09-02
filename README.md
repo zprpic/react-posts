@@ -64,3 +64,7 @@ a) react-router-dom (from npm install react-router-dom)
 - Should fetch ALL comments
 
 ### 9 Create helper functions to help proccess response data and make rendering easier
+
+- prepare all posts data
+- prepare all comments data
+- process posts and comments data for rendering

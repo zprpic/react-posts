@@ -7,3 +7,4 @@ export const extractPostByPost = (data) => {
 };
 
 //UNFINISHED
+//function name needs a change as well...

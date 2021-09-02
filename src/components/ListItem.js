@@ -1,7 +1,7 @@
 import React from "react";
 
 const ListItem = () => {
-  return <div>post...</div>;
+  return <div>posts...</div>;
 };
 
 export default ListItem;
