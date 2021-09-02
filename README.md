@@ -35,12 +35,18 @@
 
 a) components
 b) pages
-c) services
-d) hooks
-e) config
+c) hooks
+d) config
 
 ### 3 Prepare necessary dependencies
 
 a) react-router-dom (from npm install react-router-dom)
 
 ### 4 Prepare API_URL inside config folder
+
+### 5 Prepare 2 pages/routes with react-router-dom
+
+- "/" home page
+- /posts route
+- /post/${id} route
+- "star" error page

@@ -1,1 +1,1 @@
-export default API_URL = "https://jsonplaceholder.typicode.com/ ";
+export default URL = "https://jsonplaceholder.typicode.com";
