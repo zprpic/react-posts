@@ -14,10 +14,10 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/posts">
+        <Route exact path="/posts">
           <Posts />
         </Route>
-        <Route path="/post/:id" children={Post}></Route>
+        <Route exact path="/posts/:id" children={Post}></Route>
         <Route path="*">
           <Error />
         </Route>

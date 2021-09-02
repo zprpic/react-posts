@@ -1,9 +1,10 @@
 import React from "react";
+import Item from "../components/Item";
 
 const Post = () => {
   return (
     <div>
-      <h1>Post</h1>
+      <Item />
     </div>
   );
 };

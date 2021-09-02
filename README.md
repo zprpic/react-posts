@@ -54,3 +54,7 @@ a) react-router-dom (from npm install react-router-dom)
 ### 6 Create a posts component and useFetch hook
 
 - Post component should return posts grouped by userId using the useFetch custom hook
+
+### 7 Create a post component and useFetch hook
+
+- Post component should render the post according to its ${id}

@@ -1,12 +1,17 @@
 import React from "react";
 import URL from "../config/db";
-import { useFetch } from "../hooks/useFetch";
+import { useFetchPosts } from "../hooks/useFetchPosts";
 import { Link } from "react-router-dom";
 
 const List = () => {
-  const { isLoading, posts } = useFetch(URL);
+  const { isLoading, posts } = useFetchPosts(URL);
   console.log(posts);
-  return <div>{isLoading ? "loading..." : "data"}</div>;
+  return (
+    <div>
+      <h1>List</h1>
+      {isLoading ? "loading..." : "data"}
+    </div>
+  );
 };
 
 export default List;
