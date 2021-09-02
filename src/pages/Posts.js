@@ -1,9 +1,10 @@
 import React from "react";
+import List from "../components/List";
 
 const Posts = () => {
   return (
     <div>
-      <h1>Posts</h1>
+      <List />
     </div>
   );
 };

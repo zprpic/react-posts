@@ -50,3 +50,7 @@ a) react-router-dom (from npm install react-router-dom)
 - /posts route
 - /post/${id} route
 - "star" error page
+
+### 6 Create a posts component and useFetch hook
+
+- Post component should return posts grouped by userId using the useFetch custom hook
