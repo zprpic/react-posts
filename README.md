@@ -58,3 +58,7 @@ a) react-router-dom (from npm install react-router-dom)
 ### 7 Create a post component and useFetch hook
 
 - Post component should render the post according to its ${id}
+
+### 8 Create a comments component and useFetch hook
+
+- Should fetch ALL comments

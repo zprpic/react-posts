@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const useFetchPosts = (url) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoadingPosts, setIsLoadingPosts] = useState(true);
   const [posts, setPosts] = useState([]);
 
   const getPosts = async () => {
@@ -17,11 +17,11 @@ export const useFetchPosts = (url) => {
       return userSorted;
     }, {});
     setPosts(posts);
-    setIsLoading(false);
+    setIsLoadingPosts(false);
   };
 
   useEffect(() => {
     getPosts(url);
   }, [url]);
-  return { isLoading, posts };
+  return { isLoadingPosts, posts };
 };
