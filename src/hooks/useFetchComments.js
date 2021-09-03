@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { groupCommentsByPostID } from "../components/helpers/groupCommentsByPostID";
 
 export const useFetchComments = (url) => {
   const [isLoadingComments, setIsLoadingComments] = useState(true);
@@ -6,7 +7,9 @@ export const useFetchComments = (url) => {
 
   const getComments = async () => {
     const response = await fetch(`${url}/comments`);
-    const comments = await response.json();
+    const data = await response.json();
+
+    const comments = groupCommentsByPostID(data);
 
     setComments(comments);
     setIsLoadingComments(false);
