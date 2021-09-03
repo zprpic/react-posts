@@ -3,11 +3,13 @@ import Comment from "./Comment";
 
 const CommentList = (props) => {
   const { comments } = props;
-  const listOfComments = comments.map((comment) => {
-    return <Comment comment={comment} />;
-  });
-
-  return <ul>{listOfComments}</ul>;
+  return (
+    <ul>
+      {comments.map((comment) => {
+        return <Comment comment={comment} />;
+      })}
+    </ul>
+  );
 };
 
 export default CommentList;
