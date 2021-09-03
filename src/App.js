@@ -1,9 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Posts from "./pages/Posts";
-import Post from "./pages/Post";
-import Error from "./pages/Error";
+import { HomePage, PostsPage, PostPage, ErrorPage } from "./pages";
 import Navbar from "./components/Navbar";
 
 function App() {
@@ -12,14 +9,14 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/">
-          <Home />
+          <HomePage />
         </Route>
         <Route exact path="/posts">
-          <Posts />
+          <PostsPage />
         </Route>
-        <Route exact path="/posts/:id" children={Post}></Route>
+        <Route exact path="/posts/:id" children={PostPage}></Route>
         <Route path="*">
-          <Error />
+          <ErrorPage />
         </Route>
       </Switch>
     </Router>

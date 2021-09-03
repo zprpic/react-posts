@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { extractAllPostsByKey } from "../components/helpers/extractAllPostsByKey";
+import { extractAllPostsByKey } from "../helpers/extractAllPostsByKey";
 
 export const useFetchPosts = (url) => {
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);

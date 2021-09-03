@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { groupCommentsByPostID } from "../components/helpers/groupCommentsByPostID";
+import { groupCommentsByPostID } from "../helpers/groupCommentsByPostID";
 
 export const useFetchComments = (url) => {
   const [isLoadingComments, setIsLoadingComments] = useState(true);
