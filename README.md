@@ -65,6 +65,5 @@ a) react-router-dom (from npm install react-router-dom)
 
 ### 9 Create helper functions to help proccess response data and make rendering easier
 
-- prepare all posts data
+- prepare all posts data (needs to be ONE(1 array of objects))
 - prepare all comments data (unecessary, comments is already just ONE(1) array of objects. misread my console logs)
-- process posts and comments data for rendering
