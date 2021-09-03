@@ -2,11 +2,12 @@ import React from "react";
 
 const Comment = (props) => {
   const { comment } = props;
+
   return (
     <li>
-      <p>{comment.name}</p>
-      <p>{comment.email}</p>
-      <p>{comment.body}</p>
+      <p>Name: {comment.name}</p>
+      <p>Email: {comment.email}</p>
+      <p>Body: {comment.body}</p>
     </li>
   );
 };
