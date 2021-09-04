@@ -71,3 +71,9 @@ a) react-router-dom (from npm install react-router-dom)
 - content = posts with their RELATED comments
 
 ### 10 Render content
+
+### Greet the user in the console from every rendered component
+
+- pass "hello" message as props
+- access component name
+- create function that does console.log(message, componentName)
