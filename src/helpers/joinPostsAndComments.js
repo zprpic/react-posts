@@ -1,5 +1,4 @@
 export function joinPostsAndComments(posts, comments) {
-  console.log(comments);
   if (!posts) {
     return [];
   }

@@ -10,12 +10,15 @@ const SpecificPost = (props) => {
   return (
     <div>
       <h1>Post</h1>
-      {isLoadingPost ? "loading..." : "data:"}
-      <div>
-        <h4>Poster: {userId}</h4>
-        <h2>Title: {title}</h2>
-        <h3>Body: {body}</h3>
-      </div>
+      {isLoadingPost ? (
+        "loading..."
+      ) : (
+        <div>
+          <h4>Poster: {userId}</h4>
+          <h2>Title: {title}</h2>
+          <h3>Body: {body}</h3>
+        </div>
+      )}
     </div>
   );
 };

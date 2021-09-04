@@ -7,7 +7,7 @@ const CommentList = (props) => {
     <ul>
       <h3>Comments:</h3>
       {comments.map((comment) => {
-        return <Comment comment={comment} />;
+        return <Comment comment={comment} key={comment.id} />;
       })}
     </ul>
   );

@@ -6,7 +6,7 @@ const Post = (props) => {
   const { userId, id, title, body } = props.submission;
   const comments = props.submission.comments;
   return (
-    <li>
+    <li key={id}>
       <p>Username: {userId}</p>
       <p>Title: {title}</p>
       <p>Body: {body}</p>

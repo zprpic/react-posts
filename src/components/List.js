@@ -9,6 +9,8 @@ const List = () => {
   const { isLoadingPosts, posts } = useFetchPosts(URL);
   const { isLoadingComments, comments } = useFetchComments(URL);
 
+  console.log(this);
+
   let content =
     isLoadingPosts || isLoadingComments
       ? []
