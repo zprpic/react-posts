@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useGreeting } from "../hooks/useGreeting";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const { message } = props;
+  useGreeting(message, Navbar);
   return (
     <nav>
       <ul>

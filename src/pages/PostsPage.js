@@ -1,10 +1,12 @@
 import React from "react";
-import List from "../components/List";
+import PostList from "../components/PostList";
 
-export const PostsPage = () => {
+export const PostsPage = (props) => {
+  const { message } = props;
   return (
     <div>
-      <List />
+      <h1 className="title">Posts Page</h1>
+      <PostList message={message} />
     </div>
   );
 };

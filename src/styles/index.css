@@ -1,0 +1,117 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  margin-bottom: 1rem;
+}
+
+nav ul {
+  font-size: 1.5rem;
+}
+
+nav ul li {
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+Link {
+  text-decoration: none;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  font-weight: normal;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.postList {
+  display: grid;
+  place-items: center;
+}
+
+.post {
+  margin: 1.5rem 0.5rem;
+  border: 1px solid black;
+  width: 50%;
+}
+
+.postInfo {
+  margin: 1rem 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid black;
+}
+
+.commentList {
+  margin: 1rem 0.5rem;
+  margin-top: 0rem;
+}
+
+.comment {
+  padding: 0.5rem 0rem;
+}
+
+.posterInfo {
+  font-weight: bolder;
+}
+
+.commentsHeader {
+  padding-left: 0.5rem;
+}
+
+.postPage {
+  display: grid;
+  place-items: center;
+}
+
+.specificPost {
+  display: grid;
+  place-items: center;
+  width: 50%;
+}
+
+.specificPostInfo {
+  margin: 1rem 0.5rem;
+  padding-top: 0.25rem;
+  padding-bottom: 1.5rem;
+}
+
+.thePost {
+  border: 1px solid black;
+  padding: 0.5rem 0.5rem;
+}
+
+.btn {
+  background-color: whitesmoke;
+  border-radius: 50vh;
+  padding: 0.25rem 0.75rem;
+  font-size: 1.25rem;
+  box-shadow: 0 0 0 0;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.6;
+}
+
+.errorPage {
+  display: grid;
+  place-items: center;
+}

@@ -72,8 +72,10 @@ a) react-router-dom (from npm install react-router-dom)
 
 ### 10 Render content
 
-### Greet the user in the console from every rendered component
+### 11 Greet the user in the console from every rendered component
 
 - pass "hello" message as props
 - access component name
 - create function that does console.log(message, componentName)
+
+### 12 Styling the whole app... :(

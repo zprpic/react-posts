@@ -2,19 +2,25 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HomePage, PostsPage, PostPage, ErrorPage } from "./pages";
 import Navbar from "./components/Navbar";
+import "./styles/index.css";
 
 function App() {
+  const message = "Hello from component:";
   return (
     <Router>
-      <Navbar />
+      <Navbar message={message} />
       <Switch>
         <Route exact path="/">
           <HomePage />
         </Route>
         <Route exact path="/posts">
-          <PostsPage />
+          <PostsPage message={message} />
         </Route>
-        <Route exact path="/posts/:id" children={PostPage}></Route>
+        <Route
+          exact
+          path="/posts/:id"
+          children={() => <PostPage message={message} />}
+        ></Route>
         <Route path="*">
           <ErrorPage />
         </Route>

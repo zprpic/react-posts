@@ -2,14 +2,16 @@ import React from "react";
 import URL from "../config/db";
 import { useFetchPosts } from "../hooks/useFetchPosts";
 import { useFetchComments } from "../hooks/useFetchComments";
+import { useGreeting } from "../hooks/useGreeting";
 import Post from "./Post";
 import { joinPostsAndComments } from "../helpers/joinPostsAndComments";
 
-const List = () => {
+const PostList = (props) => {
   const { isLoadingPosts, posts } = useFetchPosts(URL);
   const { isLoadingComments, comments } = useFetchComments(URL);
 
-  console.log(this);
+  const { message } = props;
+  useGreeting(message, PostList);
 
   let content =
     isLoadingPosts || isLoadingComments
@@ -17,15 +19,20 @@ const List = () => {
       : joinPostsAndComments(posts, comments);
 
   return (
-    <ul>
-      <h1>List</h1>
+    <ul className="postList">
       {isLoadingPosts || isLoadingComments
         ? "loading posts and comments"
         : content.map((submission) => {
-            return <Post submission={submission} key={submission.id} />;
+            return (
+              <Post
+                submission={submission}
+                key={submission.id}
+                message={message}
+              />
+            );
           })}
     </ul>
   );
 };
 
-export default List;
+export default PostList;
