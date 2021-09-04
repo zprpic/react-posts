@@ -5,6 +5,8 @@ import { useFetchComments } from "../hooks/useFetchComments";
 import { useGreeting } from "../hooks/useGreeting";
 import Post from "./Post";
 import { joinPostsAndComments } from "../helpers/joinPostsAndComments";
+import { useState } from "react";
+import SearchBar from "./SearchBar";
 
 const PostList = (props) => {
   const { isLoadingPosts, posts } = useFetchPosts(URL);
@@ -13,6 +15,11 @@ const PostList = (props) => {
   const { message } = props;
   useGreeting(message, PostList);
 
+  const [searchTerm, setSearchTerm] = useState("");
+  const searchPosts = (searchTerm) => {
+    setSearchTerm(searchTerm);
+  };
+
   let content =
     isLoadingPosts || isLoadingComments
       ? []
@@ -20,6 +27,7 @@ const PostList = (props) => {
 
   return (
     <ul className="postList">
+      <SearchBar searchPosts={searchPosts} />
       {isLoadingPosts || isLoadingComments
         ? "loading posts and comments"
         : content.map((submission) => {

@@ -19,7 +19,7 @@ const Post = (props) => {
           Read more...
         </Link>
       </div>
-      <h3 class="commentsHeader">COMMENTS:</h3>
+      <h3 className="commentsHeader">COMMENTS:</h3>
       <CommentList comments={comments} message={message} />
     </li>
   );

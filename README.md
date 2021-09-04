@@ -79,3 +79,5 @@ a) react-router-dom (from npm install react-router-dom)
 - create function that does console.log(message, componentName)
 
 ### 12 Styling the whole app... :(
+
+### Create a search bar to filter through posts

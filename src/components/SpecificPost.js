@@ -15,7 +15,7 @@ const SpecificPost = (props) => {
       {isLoadingPost ? (
         "loading..."
       ) : (
-        <div class="thePost">
+        <div className="thePost">
           <h2>{title}</h2>
           <h4>By {userId}</h4>
           <br />

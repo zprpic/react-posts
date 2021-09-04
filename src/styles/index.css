@@ -115,3 +115,15 @@ h2 {
   display: grid;
   place-items: center;
 }
+
+.searchBar {
+  transform: scale(1.5);
+  border: 1px solid black;
+  outline: none;
+  padding: 0.25rem;
+  box-shadow: none;
+}
+
+.searchBar:focus {
+  outline: none;
+}

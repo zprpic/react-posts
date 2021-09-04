@@ -8,13 +8,13 @@ const Comment = (props) => {
   return (
     <li key={comment.id} className="comment">
       <p>
-        <span class="posterInfo">Name:</span> {comment.name}
+        <span className="posterInfo">Name:</span> {comment.name}
       </p>
       <p>
-        <span class="posterInfo">Email:</span> {comment.email}
+        <span className="posterInfo">Email:</span> {comment.email}
       </p>
       <p>
-        <span class="posterInfo">Body:</span>
+        <span className="posterInfo">Body:</span>
         {comment.body}
       </p>
     </li>
