@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import home from "../assets/home.svg";
-import forum from "../assets/forum.svg";
 
 export const ErrorPage = () => {
   return (

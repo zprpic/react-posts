@@ -91,3 +91,7 @@ a) react-router-dom (from npm install react-router-dom)
 - handle render error in postlist in case of... error
 - handle non-existant SpecificPost
 - useFetch functions are repetitive... can all be turned into one (1) useFetch function?
+
+### 15 Add comments related to specific post page with error handling
+
+### 16 Clean up some folders. Delete unnecessary files.

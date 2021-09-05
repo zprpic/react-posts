@@ -13,12 +13,16 @@ const SpecificPost = (props) => {
 
   const { id } = useParams();
   const { isLoadingPost, errorLoadingPost, post } = useFetchPost(URL, id);
-  const { userId, title, body } = post;
   const {
     isLoadingCommentsForSpecificPost,
     errorLoadingCommentsForSpecificPost,
     CommentsForSpecificPost,
   } = useFetchCommentsForSpecificPostForSpecificPost(URL, id);
+
+  const { userId, title, body } = isLoadingPost ? [] : post;
+  let comments = isLoadingCommentsForSpecificPost
+    ? []
+    : CommentsForSpecificPost;
 
   let postFetchError = false;
   let commentsFetchError = false;
@@ -28,12 +32,6 @@ const SpecificPost = (props) => {
   if (Object.keys(CommentsForSpecificPost).length === 0) {
     commentsFetchError = true;
   }
-
-  let comments = isLoadingCommentsForSpecificPost
-    ? []
-    : CommentsForSpecificPost;
-
-  console.log(CommentsForSpecificPost);
 
   return (
     <div className="specificPost">
