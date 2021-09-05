@@ -8,6 +8,7 @@ import { joinPostsAndComments } from "../helpers/joinPostsAndComments";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 import { searchPosts } from "./utils/searchPosts";
+import PropTypes from "prop-types";
 
 const PostList = (props) => {
   const { message } = props;
@@ -53,6 +54,14 @@ const PostList = (props) => {
       )}
     </ul>
   );
+};
+
+PostList.propTypes = {
+  message: PropTypes.string.isRequired,
+};
+
+PostList.defaultProps = {
+  message: "Hello from component:",
 };
 
 export default PostList;

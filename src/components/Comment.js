@@ -1,5 +1,6 @@
 import React from "react";
 import { useGreeting } from "../hooks/useGreeting";
+import PropTypes from "prop-types";
 
 const Comment = (props) => {
   const { comment, message } = props;
@@ -19,6 +20,16 @@ const Comment = (props) => {
       </p>
     </li>
   );
+};
+
+Comment.propTypes = {
+  comment: PropTypes.object.isRequired,
+  message: PropTypes.string.isRequired,
+};
+
+Comment.defaultProps = {
+  comment: {},
+  message: "Hello from component:",
 };
 
 export default Comment;

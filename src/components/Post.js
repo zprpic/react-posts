@@ -2,6 +2,7 @@ import React from "react";
 import CommentList from "./CommentList";
 import { Link } from "react-router-dom";
 import { useGreeting } from "../hooks/useGreeting";
+import PropTypes from "prop-types";
 
 const Post = (props) => {
   const { message } = props;
@@ -17,7 +18,7 @@ const Post = (props) => {
         <h4>By {userId}</h4>
         <br />
         <p>{body}</p>
-        <Link to={`posts/${id}`} style={{ fontSize: "0.8rem" }}>
+        <Link to={`post/${id}`} style={{ fontSize: "0.8rem" }}>
           Read more...
         </Link>
       </div>
@@ -27,4 +28,21 @@ const Post = (props) => {
   );
 };
 
+Post.propTypes = {
+  message: PropTypes.string.isRequired,
+  userId: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  comments: PropTypes.array.isRequired,
+};
+
+Post.defaultProps = {
+  message: "Hello from component:",
+  userId: "Unknown",
+  id: "Unknown",
+  title: "Unknown",
+  body: "Unknown",
+  comments: [],
+};
 export default Post;

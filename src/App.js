@@ -18,7 +18,7 @@ function App() {
         </Route>
         <Route
           exact
-          path="/posts/:id"
+          path="/post/:id"
           children={() => <PostPage message={message} />}
         ></Route>
         <Route path="*">

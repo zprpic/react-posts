@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useGreeting } from "../hooks/useGreeting";
+import PropTypes from "prop-types";
 
 const Navbar = (props) => {
   const { message } = props;
@@ -17,6 +18,14 @@ const Navbar = (props) => {
       </ul>
     </nav>
   );
+};
+
+Navbar.propTypes = {
+  message: PropTypes.string.isRequired,
+};
+
+Navbar.defaultProps = {
+  message: "Hello from component:",
 };
 
 export default Navbar;

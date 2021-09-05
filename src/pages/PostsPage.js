@@ -1,5 +1,6 @@
 import React from "react";
 import PostList from "../components/PostList";
+import PropTypes from "prop-types";
 
 export const PostsPage = (props) => {
   const { message } = props;
@@ -9,4 +10,12 @@ export const PostsPage = (props) => {
       <PostList message={message} />
     </div>
   );
+};
+
+PostsPage.propTypes = {
+  message: PropTypes.string.isRequired,
+};
+
+PostsPage.defaultProps = {
+  message: "Hello from component:",
 };

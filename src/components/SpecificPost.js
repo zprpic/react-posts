@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useFetchPost } from "../hooks/useFetchPost";
 import { useGreeting } from "../hooks/useGreeting";
+import PropTypes from "prop-types";
 import URL from "../config/db";
 
 const SpecificPost = (props) => {
@@ -31,6 +32,13 @@ const SpecificPost = (props) => {
       )}
     </div>
   );
+};
+
+SpecificPost.propTypes = {
+  message: PropTypes.string.isRequired,
+};
+SpecificPost.defaultProps = {
+  message: "Hello from component:",
 };
 
 export default SpecificPost;

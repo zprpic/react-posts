@@ -1,6 +1,7 @@
 import React from "react";
 import Comment from "./Comment";
 import { useGreeting } from "../hooks/useGreeting";
+import PropTypes from "prop-types";
 
 const CommentList = (props) => {
   const { comments, message } = props;
@@ -14,4 +15,13 @@ const CommentList = (props) => {
   );
 };
 
+CommentList.propTypes = {
+  comment: PropTypes.array.isRequired,
+  message: PropTypes.string.isRequired,
+};
+
+CommentList.defaultProps = {
+  comment: [],
+  message: "Hello from component:",
+};
 export default CommentList;
