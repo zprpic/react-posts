@@ -1,48 +1,57 @@
 import React from "react";
-import CommentList from "./CommentList";
-import { Link } from "react-router-dom";
 import { useGreeting } from "../hooks/useGreeting";
+import CommentList from "./CommentList";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Post = (props) => {
   const { message } = props;
   useGreeting(message, Post);
 
-  const { userId, id, title, body } = props.submission;
-  const comments = props.submission.comments;
+  const { post } = props;
+  let comments;
+  if (!props.comments) {
+    comments = props.submission.comments;
+  }
+  if (props.comments) {
+    comments = props.comments;
+  }
+  let userId, id, title, body;
+  if (props.submission) {
+    userId = props.submission.userId;
+    id = props.submission.id;
+    title = props.submission.title;
+    body = props.submission.body;
+  }
 
   return (
-    <li className="post" key={id}>
-      <div className="postInfo">
-        <h2>{title}</h2>
-        <h4>By {userId}</h4>
-        <br />
-        <p>{body}</p>
-        <Link to={`post/${id}`} style={{ fontSize: "0.8rem" }}>
-          Read more...
-        </Link>
-      </div>
-      <h3 className="commentsHeader">COMMENTS:</h3>
-      <CommentList comments={comments} message={message} />
-    </li>
+    <div className="specificPost">
+      <li className="post">
+        <div className="postInfo">
+          <h2>{title ? title : post.title}</h2>
+          <h4>By {userId ? userId : post.userId}</h4>
+          <br />
+          <p>{body ? body : post.body}</p>
+          {id ? <Link to={`/post/${id}`}>Read more...</Link> : null}
+        </div>
+        <h3 className="commentsHeader">COMMENTS:</h3>
+        {!Array.isArray(comments) ? (
+          <p style={{ marginLeft: "0.5rem" }}>
+            No comments found for post with id: {post.id}
+          </p>
+        ) : (
+          <CommentList comments={comments} message={message} />
+        )}
+      </li>
+    </div>
   );
 };
 
 Post.propTypes = {
   message: PropTypes.string.isRequired,
-  userId: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  body: PropTypes.string.isRequired,
-  comments: PropTypes.array.isRequired,
 };
-
 Post.defaultProps = {
   message: "Hello from component:",
-  userId: "Unknown",
-  id: "Unknown",
-  title: "Unknown",
-  body: "Unknown",
-  comments: [],
 };
+
 export default Post;

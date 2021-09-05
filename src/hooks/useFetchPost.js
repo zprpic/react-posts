@@ -10,9 +10,9 @@ export const useFetchPost = (url, id) => {
       const response = await fetch(`${url}/posts/${id}`);
       const post = await response.json();
       setPost(post);
-    } catch (e) {
-      setErrorLoadingPost(e);
-      console.log(e);
+    } catch (error) {
+      setErrorLoadingPost(error);
+      console.log(error);
     } finally {
       setIsLoadingPost(false);
     }

@@ -48,7 +48,6 @@ h2 {
 .post {
   margin: 1.5rem 0.5rem;
   border: 1px solid black;
-  width: 50%;
 }
 
 .postInfo {
@@ -83,18 +82,13 @@ h2 {
 .specificPost {
   display: grid;
   place-items: center;
+  width: 50%;
 }
 
 .specificPostInfo {
   margin: 1rem 0.5rem;
   padding-top: 0.25rem;
   padding-bottom: 1.5rem;
-}
-
-.thePost {
-  padding: 0.5rem 0.5rem;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
 }
 
 .errorPage {
@@ -120,4 +114,9 @@ h2 {
 
 .searchBar:focus {
   outline: none;
+}
+
+.postsPage {
+  display: grid;
+  place-items: center;
 }

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { extractAllPostsByKey } from "../helpers/extractAllPostsByKey";
 
-export const useFetchPosts = (url) => {
+export const useFetchPosts = (url, id) => {
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);
   const [errorLoadingPosts, setErrorLoadingPosts] = useState(false);
   const [posts, setPosts] = useState([]);

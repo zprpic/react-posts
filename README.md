@@ -95,3 +95,9 @@ a) react-router-dom (from npm install react-router-dom)
 ### 15 Add comments related to specific post page with error handling
 
 ### 16 Clean up some folders. Delete unnecessary files.
+
+### 17 Refactor components/pages into HOC
+
+### 18 Handle errors for messed up links in code (NOT in browsers) e.g. "/posts" to /postatgaggag/ - NOT DONE
+
+### 19 Refactor customhooks from 4 to 2 customHooks + create Async wrapper
