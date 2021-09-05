@@ -97,23 +97,13 @@ h2 {
   border-bottom: 1px solid black;
 }
 
-.btn {
-  background-color: whitesmoke;
-  border-radius: 50vh;
-  padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
-  box-shadow: 0 0 0 0;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.btn:hover {
-  opacity: 0.6;
-}
-
 .errorPage {
   display: grid;
   place-items: center;
+}
+
+.errorPage {
+  text-align: start;
 }
 
 .loadingBar {
