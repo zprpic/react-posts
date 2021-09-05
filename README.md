@@ -80,4 +80,8 @@ a) react-router-dom (from npm install react-router-dom)
 
 ### 12 Styling the whole app... :(
 
-### Create a search bar to filter through posts
+### 13 Create a search bar to filter through posts
+
+## 5.9.2021. 8:39 - Task completed
+
+### 14 Investigate and recognize code necessary to refactor + add try/catch blocks(error) handling to useFetch hooks
