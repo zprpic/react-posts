@@ -20,7 +20,7 @@ const SpecificPost = (props) => {
       {isLoadingPost ? (
         "loading..."
       ) : error ? (
-        <h2>Post not found</h2>
+        <h2>Post not found: no post with id: {id}</h2>
       ) : (
         <div className="thePost">
           <h2>{title}</h2>

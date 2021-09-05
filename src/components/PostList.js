@@ -34,6 +34,12 @@ const PostList = (props) => {
       <SearchBar createSearchTerm={createSearchTerm} message={message} />
       {isLoadingPosts || isLoadingComments ? (
         <span className="loadingBar">loading posts and comments</span>
+      ) : errorLoadingComments || errorLoadingPosts ? (
+        <div className="specificPost">
+          <h2 style={{ marginTop: "1rem" }}>
+            Error loading posts and comments
+          </h2>
+        </div>
       ) : (
         searchPosts(content, searchTerm).map((submission) => {
           return (
