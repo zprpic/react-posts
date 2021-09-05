@@ -88,4 +88,5 @@ a) react-router-dom (from npm install react-router-dom)
 
 - searchBar is repetitive. make the return statement of PostList messy. attempt to turn it into a separate util function.
 - add try/catch blocks and error handling to useFetch functions
+- handle non-existant SpecificPost
 - useFetch functions are repetitive... can all be turned into one (1) useFetch function?

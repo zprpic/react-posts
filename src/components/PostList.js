@@ -10,22 +10,24 @@ import SearchBar from "./SearchBar";
 import { searchPosts } from "./utils/searchPosts";
 
 const PostList = (props) => {
-  const { isLoadingPosts, posts } = useFetchPosts(URL);
-  const { isLoadingComments, comments } = useFetchComments(URL);
-
   const { message } = props;
   useGreeting(message, PostList);
 
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const createSearchTerm = (term) => {
-    setSearchTerm(term);
-  };
+  const { isLoadingPosts, errorLoadingPosts, posts } = useFetchPosts(URL);
+  const { isLoadingComments, errorLoadingComments, comments } =
+    useFetchComments(URL);
 
   let content =
     isLoadingPosts || isLoadingComments
       ? []
+      : errorLoadingPosts || errorLoadingComments
+      ? "Error loading data"
       : joinPostsAndComments(posts, comments);
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const createSearchTerm = (term) => {
+    setSearchTerm(term);
+  };
 
   return (
     <ul className="postList">

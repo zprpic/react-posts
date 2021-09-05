@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { useGreeting } from "../hooks/useGreeting";
 
 const Post = (props) => {
-  const { userId, id, title, body } = props.submission;
-  const comments = props.submission.comments;
   const { message } = props;
   useGreeting(message, Post);
+
+  const { userId, id, title, body } = props.submission;
+  const comments = props.submission.comments;
+
   return (
     <li className="post" key={id}>
       <div className="postInfo">

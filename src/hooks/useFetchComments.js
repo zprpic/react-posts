@@ -3,20 +3,27 @@ import { groupCommentsByPostID } from "../helpers/groupCommentsByPostID";
 
 export const useFetchComments = (url) => {
   const [isLoadingComments, setIsLoadingComments] = useState(true);
+  const [errorLoadingComments, setErrorLoadingComments] = useState(false);
   const [comments, setComments] = useState([]);
 
   const getComments = async () => {
-    const response = await fetch(`${url}/comments`);
-    const data = await response.json();
+    try {
+      const response = await fetch(`${url}/comments`);
+      const data = await response.json();
 
-    const comments = groupCommentsByPostID(data);
+      const comments = groupCommentsByPostID(data);
 
-    setComments(comments);
-    setIsLoadingComments(false);
+      setComments(comments);
+    } catch (e) {
+      setErrorLoadingComments(e);
+      console.log(e);
+    } finally {
+      setIsLoadingComments(false);
+    }
   };
 
   useEffect(() => {
     getComments(url);
   }, [url]);
-  return { isLoadingComments, comments };
+  return { isLoadingComments, errorLoadingComments, comments };
 };

@@ -1,5 +1,4 @@
 export const searchPosts = (data, term) => {
-  //filter data
   const filteredData = data.filter((submission) => {
     if (
       submission.id.toString().includes(term.toLowerCase().trim()) ||
