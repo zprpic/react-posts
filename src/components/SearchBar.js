@@ -1,6 +1,8 @@
 import React from "react";
+import { useGreeting } from "../hooks/useGreeting";
 
-const SearchBar = ({ searchPosts }) => {
+const SearchBar = ({ searchPosts, message }) => {
+  useGreeting(message, SearchBar);
   return (
     <input
       type="text"

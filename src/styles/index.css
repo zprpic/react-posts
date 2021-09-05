@@ -116,6 +116,10 @@ h2 {
   place-items: center;
 }
 
+.loadingBar {
+  margin-top: 0.5rem;
+}
+
 .searchBar {
   transform: scale(1.5);
   border: 1px solid black;

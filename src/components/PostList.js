@@ -16,8 +16,8 @@ const PostList = (props) => {
   useGreeting(message, PostList);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const searchPosts = (searchTerm) => {
-    setSearchTerm(searchTerm);
+  const searchPosts = (term) => {
+    setSearchTerm(term);
   };
 
   let content =
@@ -25,12 +25,29 @@ const PostList = (props) => {
       ? []
       : joinPostsAndComments(posts, comments);
 
+  console.log(content);
+
   return (
     <ul className="postList">
-      <SearchBar searchPosts={searchPosts} />
-      {isLoadingPosts || isLoadingComments
-        ? "loading posts and comments"
-        : content.map((submission) => {
+      <SearchBar searchPosts={searchPosts} message={message} />
+      {isLoadingPosts || isLoadingComments ? (
+        <span className="loadingBar">loading posts and comments</span>
+      ) : (
+        content
+          .filter((submission) => {
+            if (
+              submission.title
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase().trim()) ||
+              submission.body
+                .toLowerCase()
+                .includes(searchTerm.toLowerCase().trim()) ||
+              submission.userId.toString().includes(searchTerm.trim())
+            ) {
+              return submission;
+            }
+          })
+          .map((submission) => {
             return (
               <Post
                 submission={submission}
@@ -38,7 +55,8 @@ const PostList = (props) => {
                 message={message}
               />
             );
-          })}
+          })
+      )}
     </ul>
   );
 };
