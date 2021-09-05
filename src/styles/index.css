@@ -83,7 +83,6 @@ h2 {
 .specificPost {
   display: grid;
   place-items: center;
-  width: 50%;
 }
 
 .specificPostInfo {
@@ -93,8 +92,9 @@ h2 {
 }
 
 .thePost {
-  border: 1px solid black;
   padding: 0.5rem 0.5rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .btn {
