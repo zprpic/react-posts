@@ -84,4 +84,8 @@ a) react-router-dom (from npm install react-router-dom)
 
 ## 5.9.2021. 8:39 - Task completed
 
-### 14 Investigate and recognize code necessary to refactor + add try/catch blocks(error) handling to useFetch hooks
+### 14 Investigate and recognize code necessary to refactor
+
+- searchBar is repetitive. make the return statement of PostList messy. attempt to turn it into a separate util function.
+- add try/catch blocks and error handling to useFetch functions
+- useFetch functions are repetitive... can all be turned into one (1) useFetch function?

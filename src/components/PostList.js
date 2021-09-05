@@ -7,6 +7,7 @@ import Post from "./Post";
 import { joinPostsAndComments } from "../helpers/joinPostsAndComments";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
+import { searchPosts } from "./utils/searchPosts";
 
 const PostList = (props) => {
   const { isLoadingPosts, posts } = useFetchPosts(URL);
@@ -16,7 +17,8 @@ const PostList = (props) => {
   useGreeting(message, PostList);
 
   const [searchTerm, setSearchTerm] = useState("");
-  const searchPosts = (term) => {
+
+  const createSearchTerm = (term) => {
     setSearchTerm(term);
   };
 
@@ -25,37 +27,21 @@ const PostList = (props) => {
       ? []
       : joinPostsAndComments(posts, comments);
 
-  console.log(content);
-
   return (
     <ul className="postList">
-      <SearchBar searchPosts={searchPosts} message={message} />
+      <SearchBar createSearchTerm={createSearchTerm} message={message} />
       {isLoadingPosts || isLoadingComments ? (
         <span className="loadingBar">loading posts and comments</span>
       ) : (
-        content
-          .filter((submission) => {
-            if (
-              submission.title
-                .toLowerCase()
-                .includes(searchTerm.toLowerCase().trim()) ||
-              submission.body
-                .toLowerCase()
-                .includes(searchTerm.toLowerCase().trim()) ||
-              submission.userId.toString().includes(searchTerm.trim())
-            ) {
-              return submission;
-            }
-          })
-          .map((submission) => {
-            return (
-              <Post
-                submission={submission}
-                key={submission.id}
-                message={message}
-              />
-            );
-          })
+        searchPosts(content, searchTerm).map((submission) => {
+          return (
+            <Post
+              submission={submission}
+              key={submission.id}
+              message={message}
+            />
+          );
+        })
       )}
     </ul>
   );
