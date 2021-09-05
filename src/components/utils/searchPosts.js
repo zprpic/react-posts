@@ -5,6 +5,5 @@ export const searchPosts = (data, term) => {
       submission.title.includes(term.toLowerCase().trim()) ||
       submission.body.includes(term.toLowerCase().trim())
   );
-  console.log(filteredData);
   return filteredData;
 };
