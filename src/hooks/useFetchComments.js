@@ -1,18 +1,14 @@
 import { useState, useEffect } from "react";
-import { groupCommentsByPostID } from "../helpers/groupCommentsByPostID";
+import { getComments } from "../services/getComments";
 
-export const useFetchComments = (url) => {
+export const useFetchComments = (url, id) => {
   const [isLoadingComments, setIsLoadingComments] = useState(true);
   const [errorLoadingComments, setErrorLoadingComments] = useState(false);
   const [comments, setComments] = useState([]);
 
-  const getComments = async () => {
+  const fetchComments = async () => {
     try {
-      const response = await fetch(`${url}/comments`);
-      const data = await response.json();
-
-      const comments = groupCommentsByPostID(data);
-
+      const comments = await getComments(url, id);
       setComments(comments);
     } catch (e) {
       setErrorLoadingComments(e);
@@ -23,7 +19,7 @@ export const useFetchComments = (url) => {
   };
 
   useEffect(() => {
-    getComments(url);
+    fetchComments(url, id);
   }, [url]);
   return { isLoadingComments, errorLoadingComments, comments };
 };

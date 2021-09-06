@@ -100,4 +100,4 @@ a) react-router-dom (from npm install react-router-dom)
 
 ### 18 Handle errors for messed up links in code (NOT in browsers) e.g. "/posts" to /postatgaggag/ - NOT DONE
 
-### 19 Refactor customhooks from 4 to 2 customHooks + create Async wrapper
+### 19 Refactor customhooks from 4 to 2 customHooks + services for useFetch hooks

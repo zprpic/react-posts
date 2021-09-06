@@ -1,27 +1,25 @@
 import { useState, useEffect } from "react";
-import { extractAllPostsByKey } from "../helpers/extractAllPostsByKey";
+import { getPosts } from "../services/getPosts";
 
 export const useFetchPosts = (url, id) => {
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);
   const [errorLoadingPosts, setErrorLoadingPosts] = useState(false);
   const [posts, setPosts] = useState([]);
 
-  const getPosts = async () => {
+  const fetchPosts = async () => {
     try {
-      const response = await fetch(`${url}/posts`);
-      const data = await response.json();
-      const posts = await extractAllPostsByKey(data);
+      const posts = await getPosts(url, id);
       setPosts(posts);
-    } catch (e) {
-      setErrorLoadingPosts(e);
-      console.log(e);
+    } catch (error) {
+      setErrorLoadingPosts(error);
+      console.log(error);
     } finally {
       setIsLoadingPosts(false);
     }
   };
 
   useEffect(() => {
-    getPosts(url);
+    fetchPosts(url, id);
   }, [url]);
   return { isLoadingPosts, errorLoadingPosts, posts };
 };

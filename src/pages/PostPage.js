@@ -2,32 +2,29 @@ import React from "react";
 import PropTypes from "prop-types";
 import URL from "../config/db";
 import { useParams } from "react-router-dom";
-import { useFetchPost } from "../hooks/useFetchPost";
-import { useFetchCommentsForSpecificPostForSpecificPost } from "../hooks/useFetchCommentsForSpecificPost";
+import { useFetchPosts } from "../hooks/useFetchPosts";
+import { useFetchComments } from "../hooks/useFetchComments";
 import Post from "../components/Post";
 
 export const PostPage = (props) => {
   const { message, greet } = props;
   const { id } = useParams();
-  const { isLoadingPost, errorLoadingPost, post } = useFetchPost(URL, id);
-  const {
-    isLoadingCommentsForSpecificPost,
-    errorLoadingCommentsForSpecificPost,
-    CommentsForSpecificPost,
-  } = useFetchCommentsForSpecificPostForSpecificPost(URL, id);
+  const { isLoadingPosts, errorLoadingPosts, posts } = useFetchPosts(URL, id);
+  const { isLoadingComments, errorLoadingComments, comments } =
+    useFetchComments(URL, id);
 
   let postFetchError = false;
   let commentsFetchError = false;
-  if (Object.keys(post).length === 0) {
+  if (Object.keys(posts).length === 0) {
     postFetchError = true;
   }
-  if (Object.keys(CommentsForSpecificPost).length === 0) {
+  if (Object.keys(comments).length === 0) {
     commentsFetchError = true;
   }
   return (
     <div className="postPage">
       <h1 className="title">Post</h1>
-      {isLoadingPost || isLoadingCommentsForSpecificPost ? (
+      {isLoadingPosts || isLoadingComments ? (
         "Loading post and comments..."
       ) : postFetchError ? (
         `No post with id: ${id} found.`
@@ -35,11 +32,11 @@ export const PostPage = (props) => {
         <Post
           message={message}
           greet={greet}
-          post={post}
+          post={posts}
           comments={
             commentsFetchError
               ? `No comments found for post with id: ${id}`
-              : CommentsForSpecificPost
+              : comments
           }
         />
       )}
