@@ -1,9 +1,9 @@
 import React from "react";
-import { useGreeting } from "../hooks/useGreeting";
 import PropTypes from "prop-types";
 
-const SearchBar = ({ createSearchTerm, message }) => {
-  useGreeting(message, SearchBar);
+const SearchBar = (props) => {
+  const { message, greet, createSearchTerm } = props;
+  greet(message, SearchBar);
   return (
     <input
       type="text"

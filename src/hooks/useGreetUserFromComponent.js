@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { useEffect } from "react";
 
-export const useGreeting = (message, name) => {
+export const useGreetUserFromComponent = (message, name) => {
   const refContainer = useRef(name);
   const componentName = refContainer.current.name;
 

@@ -1,10 +1,9 @@
 import React from "react";
-import { useGreeting } from "../hooks/useGreeting";
 import PropTypes from "prop-types";
 
 const Comment = (props) => {
-  const { comment, message } = props;
-  useGreeting(message, Comment);
+  const { comment, message, greet } = props;
+  greet(message, Comment);
 
   return (
     <li key={comment.id} className="comment">

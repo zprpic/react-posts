@@ -1,15 +1,21 @@
 import React from "react";
 import Comment from "./Comment";
-import { useGreeting } from "../hooks/useGreeting";
 import PropTypes from "prop-types";
 
 const CommentList = (props) => {
-  const { comments, message } = props;
-  useGreeting(message, CommentList);
+  const { comments, message, greet } = props;
+  greet(message, CommentList);
   return (
     <ul className="commentList">
       {comments.map((comment) => {
-        return <Comment comment={comment} key={comment.id} message={message} />;
+        return (
+          <Comment
+            comment={comment}
+            key={comment.id}
+            message={message}
+            greet={greet}
+          />
+        );
       })}
     </ul>
   );

@@ -7,7 +7,7 @@ import { useFetchCommentsForSpecificPostForSpecificPost } from "../hooks/useFetc
 import Post from "../components/Post";
 
 export const PostPage = (props) => {
-  const { message } = props;
+  const { message, greet } = props;
   const { id } = useParams();
   const { isLoadingPost, errorLoadingPost, post } = useFetchPost(URL, id);
   const {
@@ -34,6 +34,7 @@ export const PostPage = (props) => {
       ) : (
         <Post
           message={message}
+          greet={greet}
           post={post}
           comments={
             commentsFetchError

@@ -6,7 +6,7 @@ import { useFetchPosts } from "../hooks/useFetchPosts";
 import { useFetchComments } from "../hooks/useFetchComments";
 
 export const PostsPage = (props) => {
-  const { message } = props;
+  const { message, greet } = props;
   const { isLoadingPosts, errorLoadingPosts, posts } = useFetchPosts(URL);
   const { isLoadingComments, errorLoadingComments, comments } =
     useFetchComments(URL);
@@ -19,7 +19,12 @@ export const PostsPage = (props) => {
       ) : errorLoadingPosts || errorLoadingComments ? (
         <p>Error loading posts and comments. Please try again later</p>
       ) : (
-        <PostList message={message} posts={posts} comments={comments} />
+        <PostList
+          message={message}
+          greet={greet}
+          posts={posts}
+          comments={comments}
+        />
       )}
     </div>
   );

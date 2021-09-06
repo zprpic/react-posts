@@ -1,11 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGreeting } from "../hooks/useGreeting";
 import PropTypes from "prop-types";
 
 const Navbar = (props) => {
-  const { message } = props;
-  useGreeting(message, Navbar);
+  const { message, greet } = props;
+  greet(message, Navbar);
   return (
     <nav>
       <ul>

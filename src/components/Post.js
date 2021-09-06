@@ -1,27 +1,24 @@
 import React from "react";
-import { useGreeting } from "../hooks/useGreeting";
 import CommentList from "./CommentList";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const Post = (props) => {
-  const { message } = props;
-  useGreeting(message, Post);
+  const { message, greet } = props;
+  greet(message, Post);
 
-  const { post } = props;
-  let comments;
-  if (!props.comments) {
-    comments = props.submission.comments;
-  }
-  if (props.comments) {
-    comments = props.comments;
-  }
-  let userId, id, title, body;
+  let userId, id, title, body, comments, post;
   if (props.submission) {
     userId = props.submission.userId;
     id = props.submission.id;
     title = props.submission.title;
     body = props.submission.body;
+    comments = props.submission.comments;
+  }
+
+  if (!props.submission) {
+    post = props.post;
+    comments = props.comments;
   }
 
   return (
@@ -35,12 +32,10 @@ const Post = (props) => {
           {id ? <Link to={`/post/${id}`}>Read more...</Link> : null}
         </div>
         <h3 className="commentsHeader">COMMENTS:</h3>
-        {!Array.isArray(comments) ? (
-          <p style={{ marginLeft: "0.5rem" }}>
-            No comments found for post with id: {post.id}
-          </p>
+        {!Array.isArray(comments) || comments.length === 0 ? (
+          <p style={{ marginLeft: "0.5rem" }}>{comments}</p>
         ) : (
-          <CommentList comments={comments} message={message} />
+          <CommentList comments={comments} message={message} greet={greet} />
         )}
       </li>
     </div>

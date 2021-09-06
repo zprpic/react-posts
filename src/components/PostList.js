@@ -1,15 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
-import { useGreeting } from "../hooks/useGreeting";
 import { searchPosts } from "./utils/searchPosts";
 import { joinPostsAndComments } from "../helpers/joinPostsAndComments";
 import Post from "./Post";
 import SearchBar from "./SearchBar";
 
 const PostList = (props) => {
-  const { message } = props;
-  useGreeting(message, PostList);
+  const { message, greet } = props;
+  greet(message, PostList);
 
   const [searchTerm, setSearchTerm] = useState("");
   const createSearchTerm = (term) => {
@@ -22,10 +21,19 @@ const PostList = (props) => {
 
   return (
     <ul className="postList">
-      <SearchBar createSearchTerm={createSearchTerm} message={message} />
+      <SearchBar
+        createSearchTerm={createSearchTerm}
+        message={message}
+        greet={greet}
+      />
       {searchPosts(content, searchTerm).map((submission) => {
         return (
-          <Post submission={submission} key={submission.id} message={message} />
+          <Post
+            submission={submission}
+            key={submission.id}
+            message={message}
+            greet={greet}
+          />
         );
       })}
     </ul>
