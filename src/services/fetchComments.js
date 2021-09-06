@@ -1,6 +1,6 @@
 import { groupCommentsByPostID } from "../helpers/groupCommentsByPostID";
 
-export const getComments = async (url, id) => {
+export const fetchComments = async (url, id) => {
   let response, data, comments;
   if (id) {
     response = await fetch(`${url}/posts/${id}/comments`);

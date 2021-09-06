@@ -1,6 +1,6 @@
 import { extractAllPostsByKey } from "../helpers/extractAllPostsByKey";
 
-export const getPosts = async (url, id) => {
+export const fetchPosts = async (url, id) => {
   let response, data, posts;
   if (id) {
     response = await fetch(`${url}/posts/${id}`);

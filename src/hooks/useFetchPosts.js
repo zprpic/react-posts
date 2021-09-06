@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { getPosts } from "../services/getPosts";
+import { fetchPosts } from "../services/fetchPosts";
 
 export const useFetchPosts = (url, id) => {
   const [isLoadingPosts, setIsLoadingPosts] = useState(true);
   const [errorLoadingPosts, setErrorLoadingPosts] = useState(false);
   const [posts, setPosts] = useState([]);
 
-  const fetchPosts = async () => {
+  const getPosts = async () => {
     try {
-      const posts = await getPosts(url, id);
+      const posts = await fetchPosts(url, id);
       setPosts(posts);
     } catch (error) {
       setErrorLoadingPosts(error);
@@ -19,7 +19,7 @@ export const useFetchPosts = (url, id) => {
   };
 
   useEffect(() => {
-    fetchPosts(url, id);
+    getPosts(url, id);
   }, [url]);
   return { isLoadingPosts, errorLoadingPosts, posts };
 };

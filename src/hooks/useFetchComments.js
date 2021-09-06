@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import { getComments } from "../services/getComments";
+import { fetchComments } from "../services/fetchComments";
 
 export const useFetchComments = (url, id) => {
   const [isLoadingComments, setIsLoadingComments] = useState(true);
   const [errorLoadingComments, setErrorLoadingComments] = useState(false);
   const [comments, setComments] = useState([]);
 
-  const fetchComments = async () => {
+  const getComments = async () => {
     try {
-      const comments = await getComments(url, id);
+      const comments = await fetchComments(url, id);
       setComments(comments);
     } catch (e) {
       setErrorLoadingComments(e);
@@ -19,7 +19,7 @@ export const useFetchComments = (url, id) => {
   };
 
   useEffect(() => {
-    fetchComments(url, id);
+    getComments(url, id);
   }, [url]);
   return { isLoadingComments, errorLoadingComments, comments };
 };
