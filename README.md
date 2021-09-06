@@ -24,6 +24,8 @@
 
 ---
 
+### To run this app: $ cd react-posts $ npm start
+
 ### 1 Connect project to github
 
 - app name: react-posts
@@ -98,6 +100,6 @@ a) react-router-dom (from npm install react-router-dom)
 
 ### 17 Refactor components/pages into HOC
 
-### 18 Handle errors for messed up links in code (NOT in browsers) e.g. "/posts" to /postatgaggag/ - NOT DONE
+### 18 Handle errors for messed up links in code (NOT in browsers) e.g. "/posts" to /postatgaggag/
 
 ### 19 Refactor customhooks from 4 to 2 customHooks + services for useFetch hooks
