@@ -5,6 +5,7 @@ import { APIRoutes } from "../config/APIRoutes";
 import { useFetch } from "../hooks/useFetch";
 import { extractAllPostsByKey } from "../helpers/extractAllPostsByKey";
 import { groupCommentsByPostID } from "../helpers/groupCommentsByPostID";
+import { Loader } from "../components/Loader";
 
 export const PostsPage = (props) => {
   const { message, greet } = props;
@@ -32,7 +33,7 @@ export const PostsPage = (props) => {
           comments={groupCommentsByPostID(comments)}
         />
       ) : (
-        "Loading posts and comments"
+        <Loader message={message} greet={greet} />
       )}
     </div>
   );

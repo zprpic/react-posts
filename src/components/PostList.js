@@ -17,6 +17,9 @@ const PostList = (props) => {
 
   const { posts, comments } = props;
 
+  console.log(posts);
+  console.log(comments);
+
   let content = joinPostsAndComments(posts, comments);
 
   return (
@@ -28,7 +31,7 @@ const PostList = (props) => {
       />
       {searchPosts(content, searchTerm).map((submission) => {
         const { userId, id, title, body, comments } = submission;
-        const post = { ...userId, id, title, body };
+        const post = { userId, id, title, body };
         return (
           <Post
             post={post}
@@ -45,10 +48,14 @@ const PostList = (props) => {
 
 PostList.propTypes = {
   message: PropTypes.string.isRequired,
+  posts: PropTypes.array.isRequired,
+  comments: PropTypes.array.isRequired,
 };
 
 PostList.defaultProps = {
   message: "Hello from component:",
+  posts: [],
+  comments: [],
 };
 
 export default PostList;

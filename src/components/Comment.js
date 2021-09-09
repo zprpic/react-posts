@@ -22,13 +22,13 @@ const Comment = (props) => {
 };
 
 Comment.propTypes = {
-  comment: PropTypes.object.isRequired,
   message: PropTypes.string.isRequired,
+  comment: PropTypes.object.isRequired,
 };
 
 Comment.defaultProps = {
-  comment: {},
   message: "Hello from component:",
+  comment: {},
 };
 
 export default Comment;

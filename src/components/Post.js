@@ -29,9 +29,13 @@ const Post = (props) => {
 
 Post.propTypes = {
   message: PropTypes.string.isRequired,
+  post: PropTypes.object.isRequired,
+  comments: PropTypes.array.isRequired,
 };
 Post.defaultProps = {
   message: "Hello from component:",
+  post: {},
+  comments: [],
 };
 
 export default Post;

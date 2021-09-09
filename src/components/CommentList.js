@@ -22,12 +22,12 @@ const CommentList = (props) => {
 };
 
 CommentList.propTypes = {
-  comments: PropTypes.array.isRequired,
   message: PropTypes.string.isRequired,
+  comments: PropTypes.array.isRequired,
 };
 
 CommentList.defaultProps = {
-  comments: [],
   message: "Hello from component:",
+  comments: [],
 };
 export default CommentList;

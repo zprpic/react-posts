@@ -7,6 +7,6 @@ export const groupCommentsByPostID = (data) => {
     postGrouped[comment.postId].push(comment);
 
     return postGrouped;
-  }, {});
+  }, []);
   return groupedComments;
 };
