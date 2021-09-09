@@ -6,6 +6,7 @@ import { useFetch } from "../hooks/useFetch";
 import { extractAllPostsByKey } from "../helpers/extractAllPostsByKey";
 import { groupCommentsByPostID } from "../helpers/groupCommentsByPostID";
 import { Loader } from "../components/Loader";
+import { ErrorNotification } from "../components/ErrorNotification";
 
 export const PostsPage = (props) => {
   const { message, greet } = props;
@@ -22,18 +23,31 @@ export const PostsPage = (props) => {
     data: comments,
   } = useFetch(APIRoutes.getComments());
 
+  const loading = loadingPosts || loadingComments;
+  const hasError = errorLoadingPosts || errorLoadingComments;
+  const hasData =
+    !loading && !hasError && posts.length > 0 && comments.length > 0;
+
   return (
     <div className="postsPage">
       <h1 className="title">Posts Page</h1>
-      {!loadingPosts && !loadingComments ? (
+
+      {loading && <Loader message={message} greet={greet} />}
+
+      {!loading && hasError && (
+        <ErrorNotification
+          error={errorLoadingPosts && errorLoadingComments}
+          message={message}
+          greet={greet}
+        />
+      )}
+      {!loading && hasData && (
         <PostList
           message={message}
           greet={greet}
           posts={extractAllPostsByKey(posts)}
           comments={groupCommentsByPostID(comments)}
         />
-      ) : (
-        <Loader message={message} greet={greet} />
       )}
     </div>
   );

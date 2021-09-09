@@ -17,9 +17,6 @@ const PostList = (props) => {
 
   const { posts, comments } = props;
 
-  console.log(posts);
-  console.log(comments);
-
   let content = joinPostsAndComments(posts, comments);
 
   return (

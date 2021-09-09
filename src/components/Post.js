@@ -9,7 +9,6 @@ const Post = (props) => {
   greet(message, Post);
 
   const { id } = useParams(); //hacky solution for readmore link...
-
   return (
     <div className="specificPost">
       <li className="post">
@@ -18,7 +17,11 @@ const Post = (props) => {
           <h4>By {post.userId}</h4>
           <br />
           <p>{post.body}</p>
-          {!id ? <Link to={`/post/${post.id}`}>Read more...</Link> : null}
+          {!id ? (
+            <Link to={`/post/${post.id}`}>Read more...</Link>
+          ) : (
+            <Link to="/posts">Back to posts</Link>
+          )}
         </div>
         <h3 className="commentsHeader">COMMENTS:</h3>
         <CommentList comments={comments} message={message} greet={greet} />
