@@ -1,30 +1,38 @@
 import React from "react";
 import PostList from "../components/PostList";
 import PropTypes from "prop-types";
-import URL from "../config/db";
-import { useFetchPosts } from "../hooks/useFetchPosts";
-import { useFetchComments } from "../hooks/useFetchComments";
+import { APIRoutes } from "../config/APIRoutes";
+import { useFetch } from "../hooks/useFetch";
+import { extractAllPostsByKey } from "../helpers/extractAllPostsByKey";
+import { groupCommentsByPostID } from "../helpers/groupCommentsByPostID";
 
 export const PostsPage = (props) => {
   const { message, greet } = props;
-  const { isLoadingPosts, errorLoadingPosts, posts } = useFetchPosts(URL);
-  const { isLoadingComments, errorLoadingComments, comments } =
-    useFetchComments(URL);
+
+  const {
+    loadingData: loadingPosts,
+    errorLoadingData: errorLoadingPosts,
+    data: posts,
+  } = useFetch(APIRoutes.getPosts());
+
+  const {
+    loadingData: loadingComments,
+    errorLoadingData: errorLoadingComments,
+    data: comments,
+  } = useFetch(APIRoutes.getComments());
 
   return (
     <div className="postsPage">
       <h1 className="title">Posts Page</h1>
-      {isLoadingPosts || isLoadingComments ? (
-        "Loading posts and comments..."
-      ) : errorLoadingPosts || errorLoadingComments ? (
-        <p>Error loading posts and comments. Please try again later</p>
-      ) : (
+      {!loadingPosts && !loadingComments ? (
         <PostList
           message={message}
           greet={greet}
-          posts={posts}
-          comments={comments}
+          posts={extractAllPostsByKey(posts)}
+          comments={groupCommentsByPostID(comments)}
         />
+      ) : (
+        "Loading posts and comments"
       )}
     </div>
   );
