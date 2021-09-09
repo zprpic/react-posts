@@ -103,3 +103,16 @@ a) react-router-dom (from npm install react-router-dom)
 ### 18 Handle errors for messed up links in code (NOT in browsers) e.g. "/posts" to /postatgaggag/
 
 ### 19 Refactor customhooks from 4 to 2 customHooks + services for useFetch hooks
+
+### 20 Refactoring code:
+
+- one universal useFetch hook
+- one fetchJSON helper
+- delete services
+- rework some object destructuring
+
+### 21 Refactoring left:
+
+- PostList component and Post component - submission data needs to be cleaner and cleaner and names of props should match
+- Reworking conditional rendering based on error and loading
+- Add more proptypes

@@ -27,10 +27,13 @@ const PostList = (props) => {
         greet={greet}
       />
       {searchPosts(content, searchTerm).map((submission) => {
+        const { userId, id, title, body, comments } = submission;
+        const post = { ...userId, id, title, body };
         return (
           <Post
-            submission={submission}
-            key={submission.id}
+            post={post}
+            comments={comments}
+            key={id}
             message={message}
             greet={greet}
           />
