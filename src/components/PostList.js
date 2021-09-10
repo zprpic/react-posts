@@ -27,13 +27,12 @@ const PostList = (props) => {
         greet={greet}
       />
       {searchPosts(content, searchTerm).map((submission) => {
-        const { userId, id, title, body, comments } = submission;
-        const post = { userId, id, title, body };
+        const { comments, ...post } = submission;
         return (
           <Post
             post={post}
             comments={comments}
-            key={id}
+            key={post.id}
             message={message}
             greet={greet}
             renderType={renderType}
@@ -48,14 +47,14 @@ PostList.propTypes = {
   message: PropTypes.string.isRequired,
   renderType: PropTypes.string.isRequired,
   posts: PropTypes.array.isRequired,
-  comments: PropTypes.array.isRequired,
+  comments: PropTypes.object.isRequired,
 };
 
 PostList.defaultProps = {
   message: "Hello from component:",
   renderType: "",
   posts: [],
-  comments: [],
+  comments: {},
 };
 
 export default PostList;
