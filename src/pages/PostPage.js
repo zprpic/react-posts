@@ -6,6 +6,7 @@ import { useFetch } from "../hooks/useFetch";
 import Post from "../components/Post";
 import { Loader } from "../components/Loader";
 import { ErrorNotification } from "../components/ErrorNotification";
+import { errorMessageLoader } from "../errors/errorMessageLoader";
 import { renderType } from "../helpers";
 
 export const PostPage = (props) => {
@@ -20,39 +21,34 @@ export const PostPage = (props) => {
   );
 
   const loading = loadingPost || loadingComments;
-  let hasError, errorLoadingPost, errorLoadingComments;
-  /*   if (!loading) {
-    errorLoadingPost = Object.keys(post).length === 0 &&;
-    errorLoadingComments = comments.length === 0;
-    hasError = errorLoadingPost || errorLoadingComments;
-  } */
+  let errorLoadingPost;
+  if (!loading) {
+    errorLoadingPost = Object.keys(post).length === 0;
+  }
+
   return (
     <div className="postPage">
       <h1 className="title">Post</h1>
 
       {loading && <Loader message={message} greet={greet} />}
 
-      {/*       {!loading && hasError && (
-        <>
-          {errorLoadingPost && (
-            <ErrorNotification error={(errorLoadingPost, id)} />
-          )}
-          {errorLoadingComments && (
-            <ErrorNotification error={(errorLoadingComments, id)} />
-          )}
-        </>
+      {!loading && errorLoadingPost && (
+        <ErrorNotification
+          error={errorMessageLoader.postNotFound(id)}
+          message={message}
+          greet={greet}
+        />
       )}
 
-      {!loading && !hasError && (
-        <Post message={message} greet={greet} post={post} comments={comments} renderType={renderType.renderSingle()} />
-      )} */}
-      <Post
-        message={message}
-        greet={greet}
-        post={post}
-        comments={comments}
-        renderType={renderType.renderSingle()}
-      />
+      {!loading && !errorLoadingPost && (
+        <Post
+          message={message}
+          greet={greet}
+          post={post}
+          comments={comments}
+          renderType={renderType.renderSingle()}
+        />
+      )}
     </div>
   );
 };

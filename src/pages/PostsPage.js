@@ -10,6 +10,7 @@ import {
 } from "../helpers";
 import { Loader } from "../components/Loader";
 import { ErrorNotification } from "../components/ErrorNotification";
+import { errorMessageLoader } from "../errors/errorMessageLoader";
 
 export const PostsPage = (props) => {
   const { message, greet } = props;
@@ -30,6 +31,9 @@ export const PostsPage = (props) => {
   const hasError = errorLoadingPosts || errorLoadingComments;
   const hasData =
     !loading && !hasError && posts.length > 0 && comments.length > 0;
+  const hasEmptyData =
+    (!loading && Object.keys(posts).length === 0) ||
+    (!loading && Object.keys(comments).length === 0);
 
   return (
     <div className="postsPage">
@@ -51,6 +55,14 @@ export const PostsPage = (props) => {
           posts={extractAllPostsByKey(posts)}
           comments={groupCommentsByPostID(comments)}
           renderType={renderType.renderList()}
+        />
+      )}
+
+      {!loading && hasEmptyData && (
+        <ErrorNotification
+          error={errorMessageLoader.dataNotFound()}
+          message={message}
+          greet={greet}
         />
       )}
     </div>
