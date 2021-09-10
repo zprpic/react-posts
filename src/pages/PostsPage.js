@@ -31,6 +31,9 @@ export const PostsPage = (props) => {
   const hasError = errorLoadingPosts || errorLoadingComments;
   const hasData =
     !loading && !hasError && posts.length > 0 && comments.length > 0;
+  const hasEmptyData =
+    (!loading && Object.keys(posts).length === 0) ||
+    (!loading && Object.keys(comments).length === 0);
 
   return (
     <div className="postsPage">
