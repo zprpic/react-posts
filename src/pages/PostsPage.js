@@ -31,9 +31,9 @@ export const PostsPage = (props) => {
   const hasError = errorLoadingPosts || errorLoadingComments;
   const hasData =
     !loading && !hasError && posts.length > 0 && comments.length > 0;
-  const hasEmptyData =
-    (!loading && Object.keys(posts).length === 0) ||
-    (!loading && Object.keys(comments).length === 0);
+  const hasEmptyPosts = !loading && Object.keys(posts).length === 0;
+  const hasEmptyComments = !loading && Object.keys(comments).length === 0;
+  const hasEmptyData = hasEmptyPosts || hasEmptyComments;
 
   return (
     <div className="postsPage">
@@ -48,6 +48,7 @@ export const PostsPage = (props) => {
           greet={greet}
         />
       )}
+
       {!loading && hasData && (
         <PostList
           message={message}
@@ -59,11 +60,33 @@ export const PostsPage = (props) => {
       )}
 
       {!loading && hasEmptyData && (
-        <ErrorNotification
-          error={errorMessageLoader.dataNotFound()}
-          message={message}
-          greet={greet}
-        />
+        <>
+          {hasEmptyPosts && hasEmptyComments && (
+            <ErrorNotification
+              error={errorMessageLoader.dataNotFound()}
+              message={message}
+              greet={greet}
+            />
+          )}
+
+          {hasEmptyPosts && !hasEmptyComments && (
+            <ErrorNotification
+              error={errorMessageLoader.postsNotFound()}
+              message={message}
+              greet={greet}
+            />
+          )}
+
+          {hasEmptyComments && !hasEmptyPosts && (
+            <PostList
+              message={message}
+              greet={greet}
+              posts={extractAllPostsByKey(posts)}
+              comments={groupCommentsByPostID(comments)}
+              renderType={renderType.renderList()}
+            />
+          )}
+        </>
       )}
     </div>
   );
