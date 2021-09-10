@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import PropTypes from "prop-types";
 import { searchPosts } from "./utils/searchPosts";
-import { joinPostsAndComments } from "../helpers/joinPostsAndComments";
+import { joinPostsAndComments } from "../helpers";
 import Post from "./Post";
 import SearchBar from "./SearchBar";
 

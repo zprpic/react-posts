@@ -6,7 +6,7 @@ import { useFetch } from "../hooks/useFetch";
 import Post from "../components/Post";
 import { Loader } from "../components/Loader";
 import { ErrorNotification } from "../components/ErrorNotification";
-import { renderType } from "../helpers/renderType";
+import { renderType } from "../helpers";
 
 export const PostPage = (props) => {
   const { message, greet } = props;

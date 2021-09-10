@@ -3,11 +3,13 @@ import PostList from "../components/PostList";
 import PropTypes from "prop-types";
 import { APIRoutes } from "../config/APIRoutes";
 import { useFetch } from "../hooks/useFetch";
-import { extractAllPostsByKey } from "../helpers/extractAllPostsByKey";
-import { groupCommentsByPostID } from "../helpers/groupCommentsByPostID";
+import {
+  extractAllPostsByKey,
+  groupCommentsByPostID,
+  renderType,
+} from "../helpers";
 import { Loader } from "../components/Loader";
 import { ErrorNotification } from "../components/ErrorNotification";
-import { renderType } from "../helpers/renderType";
 
 export const PostsPage = (props) => {
   const { message, greet } = props;

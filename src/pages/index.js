@@ -1,6 +1,4 @@
-import { HomePage } from "./HomePage";
-import { PostsPage } from "./PostsPage";
-import { PostPage } from "./PostPage";
-import { ErrorPage } from "./ErrorPage";
-
-export { HomePage, PostsPage, PostPage, ErrorPage };
+export { HomePage } from "./HomePage";
+export { PostsPage } from "./PostsPage";
+export { PostPage } from "./PostPage";
+export { ErrorPage } from "./ErrorPage";
