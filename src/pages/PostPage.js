@@ -6,6 +6,7 @@ import { useFetch } from "../hooks/useFetch";
 import Post from "../components/Post";
 import { Loader } from "../components/Loader";
 import { ErrorNotification } from "../components/ErrorNotification";
+import { renderType } from "../helpers/renderType";
 
 export const PostPage = (props) => {
   const { message, greet } = props;
@@ -20,18 +21,18 @@ export const PostPage = (props) => {
 
   const loading = loadingPost || loadingComments;
   let hasError, errorLoadingPost, errorLoadingComments;
-  if (!loading) {
-    errorLoadingPost = Object.keys(post).length === 0;
+  /*   if (!loading) {
+    errorLoadingPost = Object.keys(post).length === 0 &&;
     errorLoadingComments = comments.length === 0;
     hasError = errorLoadingPost || errorLoadingComments;
-  }
+  } */
   return (
     <div className="postPage">
       <h1 className="title">Post</h1>
 
       {loading && <Loader message={message} greet={greet} />}
 
-      {!loading && hasError && (
+      {/*       {!loading && hasError && (
         <>
           {errorLoadingPost && (
             <ErrorNotification error={(errorLoadingPost, id)} />
@@ -43,8 +44,15 @@ export const PostPage = (props) => {
       )}
 
       {!loading && !hasError && (
-        <Post message={message} greet={greet} post={post} comments={comments} />
-      )}
+        <Post message={message} greet={greet} post={post} comments={comments} renderType={renderType.renderSingle()} />
+      )} */}
+      <Post
+        message={message}
+        greet={greet}
+        post={post}
+        comments={comments}
+        renderType={renderType.renderSingle()}
+      />
     </div>
   );
 };

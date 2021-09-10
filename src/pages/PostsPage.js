@@ -7,6 +7,7 @@ import { extractAllPostsByKey } from "../helpers/extractAllPostsByKey";
 import { groupCommentsByPostID } from "../helpers/groupCommentsByPostID";
 import { Loader } from "../components/Loader";
 import { ErrorNotification } from "../components/ErrorNotification";
+import { renderType } from "../helpers/renderType";
 
 export const PostsPage = (props) => {
   const { message, greet } = props;
@@ -47,6 +48,7 @@ export const PostsPage = (props) => {
           greet={greet}
           posts={extractAllPostsByKey(posts)}
           comments={groupCommentsByPostID(comments)}
+          renderType={renderType.renderList()}
         />
       )}
     </div>

@@ -7,7 +7,7 @@ import Post from "./Post";
 import SearchBar from "./SearchBar";
 
 const PostList = (props) => {
-  const { message, greet } = props;
+  const { message, greet, renderType } = props;
   greet(message, PostList);
 
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,6 +36,7 @@ const PostList = (props) => {
             key={id}
             message={message}
             greet={greet}
+            renderType={renderType}
           />
         );
       })}
@@ -45,12 +46,14 @@ const PostList = (props) => {
 
 PostList.propTypes = {
   message: PropTypes.string.isRequired,
+  renderType: PropTypes.string.isRequired,
   posts: PropTypes.array.isRequired,
   comments: PropTypes.array.isRequired,
 };
 
 PostList.defaultProps = {
   message: "Hello from component:",
+  renderType: "",
   posts: [],
   comments: [],
 };
