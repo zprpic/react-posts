@@ -1,22 +1,22 @@
 import React from "react";
 
 export const errorMessageLoader = {
-  dataNotFound: function () {
+  dataNotFound() {
     return {
       message: "Data not found... Please try again later.",
     };
   },
-  postsNotFound: function () {
+  postsNotFound() {
     return {
       message: "Posts not found... Please try again later.",
     };
   },
-  postNotFound: function (id) {
+  postNotFound(id) {
     return {
       message: `Post with id: ${id} not found...`,
     };
   },
-  commentsNotFound: function (id) {
+  commentsNotFound(id) {
     return {
       message: `Comments for post with id: ${id} not found...`,
     };

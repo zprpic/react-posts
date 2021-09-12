@@ -1,8 +1,8 @@
 export const renderType = {
-  renderSingle: function () {
+  renderSingle() {
     return "SINGLE";
   },
-  renderList: function () {
+  renderList() {
     return "LIST";
   },
 };

@@ -116,3 +116,7 @@ a) react-router-dom (from npm install react-router-dom)
 - PostList component and Post component - submission data needs to be cleaner and cleaner and names of props should match
 - Reworking conditional rendering based on error and loading
 - Add more proptypes
+
+### 22 Cleaning up the code a bit following airbnb react guidelines
+
+- https://github.com/airbnb/javascript

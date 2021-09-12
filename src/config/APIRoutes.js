@@ -1,15 +1,15 @@
 export const APIRoutes = {
   route: "https://jsonplaceholder.typicode.com/",
-  getPosts: function () {
+  getPosts() {
     return this.route + "posts";
   },
-  getPost: function (id) {
+  getPost(id) {
     return this.route + "posts/" + id;
   },
-  getComments: function () {
+  getComments() {
     return this.route + "comments";
   },
-  getCommentsForSpecificPost: function (id) {
+  getCommentsForSpecificPost(id) {
     return this.route + "posts/" + id + "/comments";
   },
 };
