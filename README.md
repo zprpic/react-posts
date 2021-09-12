@@ -120,3 +120,4 @@ a) react-router-dom (from npm install react-router-dom)
 ### 22 Cleaning up the code a bit following airbnb react guidelines
 
 - https://github.com/airbnb/javascript
+- https://github.com/airbnb/javascript/tree/master/react
