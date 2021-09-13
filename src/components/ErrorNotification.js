@@ -5,7 +5,7 @@ export const ErrorNotification = (props) => {
   const { message, greet, error } = props;
   greet(message, ErrorNotification);
 
-  return <h4 style={{ marginLeft: "0.5rem" }}>{error.message}</h4>;
+  return <h4 className="errorMessage">{error.message}</h4>;
 };
 
 ErrorNotification.propTypes = {
