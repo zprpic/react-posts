@@ -1,4 +1,4 @@
-export function joinPostsAndComments(posts, comments) {
+export const joinPostsAndComments = (posts, comments) => {
   if (!posts) {
     return [];
   }
